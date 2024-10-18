@@ -6,7 +6,7 @@ DB_USER="nate"
 
 get_latest_timestamp() {
     latest_timestamp=$(psql -U "$DB_USER" -d "$DB_NAME" -t -c \
-    "SELECT MAX(timestamp) FROM log_entries WHERE error_level IN ('ERROR', 'FATAL');")
+    "SELECT MAX(timestamp) FROM log_entries;")
     echo "$latest_timestamp"
 }
 
